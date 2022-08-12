@@ -1,5 +1,9 @@
 @import '_mixins.scss','_reset.scss';
 
+button {
+    cursor: pointer;
+}
+
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-smooth: always;
@@ -403,7 +407,7 @@ body {
     }
 
     button {
-        padding: .2rem 2rem .3rem;
+        padding: .2rem 2.5rem .3rem;
         margin: 1.5rem 0 0;
         border-radius: 3px;
         border: 1px solid #353535;
@@ -411,6 +415,10 @@ body {
         color: rgba(255, 255, 255, 0.493);
         opacity: .8;
         position: relative;
+    }
+
+    .btnDelete {
+        margin: .5rem;
     }
 
     input {

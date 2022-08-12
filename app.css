@@ -142,6 +142,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+button {
+  cursor: pointer;
+}
+
 * {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-smooth: always;
@@ -540,7 +544,7 @@ body {
   margin: 1.5rem 0 0;
 }
 .main-sub .card-contaniner-sub button {
-  padding: 0.2rem 2rem 0.3rem;
+  padding: 0.2rem 2.5rem 0.3rem;
   margin: 1.5rem 0 0;
   border-radius: 3px;
   border: 1px solid #353535;
@@ -548,6 +552,9 @@ body {
   color: rgba(255, 255, 255, 0.493);
   opacity: 0.8;
   position: relative;
+}
+.main-sub .card-contaniner-sub .btnDelete {
+  margin: 0.5rem;
 }
 .main-sub .card-contaniner-sub input {
   outline: none;

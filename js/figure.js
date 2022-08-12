@@ -22,42 +22,27 @@ cardContaniner.innerHTML = `<img src="/images/figuraGeoilus.png">`
 
 
 let imgTriangulo = document.querySelector(".imgTriangulo")
-imgTriangulo.addEventListener("click", changeFigureTriangulo)
+imgTriangulo.addEventListener("click", trianguloArea)
 
 let imgCuadrado = document.querySelector(".imgCuadrado")
-imgCuadrado.addEventListener("click", changeFigureCuadrado)
+imgCuadrado.addEventListener("click", cuadradoArea)
 
 let imgCirculo = document.querySelector(".imgCirculo")
-imgCirculo.addEventListener("click", changeFigureCirculo)
+imgCirculo.addEventListener("click", circuloArea)
 
 let imgRectangulo = document.querySelector(".imgRectangulo")
-imgRectangulo.addEventListener("click", changeFigureRectangulo)
-
-
-
-function changeFigureTriangulo() {
-    trianguloArea();
-}
-function changeFigureCuadrado() {
-    cuadradoArea();
-}
-function changeFigureCirculo() {
-    circuloArea();
-}
-function changeFigureRectangulo() {
-    rectanguloArea();
-}
-
+imgRectangulo.addEventListener("click", rectanguloArea)
 
 
 function trianguloArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
                                 <h3> ${arrayTriangulo.nombre} </h3>
                                 <img src="${arrayTriangulo.imgUrl}">
-                                <p>base: <input id="baseTriangle" type="number" placeholder="Ingrese base"></p>
-                                <p>altura: <input id="alturaTriangle" type="number" placeholder="Ingrese altura"></p>
-                                <p><input id="resultTriangle" type="text" placeholder="Resultado"></p>
+                                <p>Base: <input id="baseTriangle" type="number" placeholder="Ingrese base"></p>
+                                <p>Altura: <input id="alturaTriangle" type="number" placeholder="Ingrese altura"></p>
+                                <p>Resultado: <input id="resultTriangle" type="text" placeholder="Resultado"></p>
                                 <button class="btnTriangle">Enviar</button>
+                                <button class="btnDelete">Borrar</button>
                                 </div>
                                 <span></span>
                                 <div class="two-sect">
@@ -68,12 +53,26 @@ function trianguloArea() {
 
     let btnTriangle = document.querySelector(".btnTriangle")
     btnTriangle.addEventListener("click", resultadoTriangle)
+    
+    let btnDelete = document.querySelector(".btnDelete")
+    btnDelete.addEventListener("click", () => {
+        trianguloArea()
+    })
 
     function resultadoTriangle() {
         let base = parseInt(baseTriangle.value)
         let altura = parseInt(alturaTriangle.value)
         var resultado = (base * altura) / 2;
-        resultTriangle.value = (resultado)
+
+        if (resultado) {
+            resultTriangle.value = (resultado)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes ingresar los datos!',
+            })
+        }
     }
 }
 
@@ -81,9 +80,10 @@ function cuadradoArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
                                 <h3> ${arrayCuadrado.nombre} </h3>
                                 <img src="${arrayCuadrado.imgUrl}">
-                                <p>base: <input id="baseCuadrado" type="number" placeholder="Ingrese base"></p>
-                                <p><input id="resultCuadrado" type="text" placeholder="Resultado"></p>
+                                <p>Base: <input id="baseCuadrado" type="number" placeholder="Ingrese base"></p>
+                                <p>Resultado:<input id="resultCuadrado" type="text" placeholder="Resultado"></p>
                                 <button class="btnCuadrado">Enviar</button>
+                                <button class="btnDelete">Borrar</button>
                                 </div>
                                 <span></span>
                                 <div class="two-sect">
@@ -95,10 +95,24 @@ function cuadradoArea() {
     let btnCuadrado = document.querySelector(".btnCuadrado")
     btnCuadrado.addEventListener("click", resultadoCuadrado)
 
+    let btnDelete = document.querySelector(".btnDelete")
+    btnDelete.addEventListener("click", ()=>{
+        cuadradoArea()
+    })
+
     function resultadoCuadrado() {
         let base = parseInt(baseCuadrado.value)
         var resultado = (base * 2)
-        resultCuadrado.value = (resultado)
+
+        if (resultado) {
+            resultCuadrado.value = (resultado)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes ingresar los datos!',
+            })
+        }
     }
 }
 
@@ -107,8 +121,9 @@ function circuloArea() {
                                 <h3> ${arrayCirculo.nombre} </h3>
                                 <img src="${arrayCirculo.imgUrl}">
                                 <p>base: <input id="radioCirculo" type="number" placeholder="Ingrese radio"></p>
-                                <p><input id="resultCirculo" type="text" placeholder="Resultado"></p>
+                                <p>Resultado:<input id="resultCirculo" type="text" placeholder="Resultado"></p>
                                 <button class="btnCirculo">Enviar</button>
+                                <button class="btnDelete">Borrar</button>
                                 </div>
                                 <span></span>
                                 <div class="two-sect">
@@ -121,10 +136,24 @@ function circuloArea() {
     let btnCirculo = document.querySelector(".btnCirculo")
     btnCirculo.addEventListener("click", resultadoCirculo)
 
+    let btnDelete = document.querySelector(".btnDelete")
+    btnDelete.addEventListener("click",()=>{
+        circuloArea()
+    })
+
     function resultadoCirculo() {
         let radio = parseInt(radioCirculo.value)
         var resultado = (obtenerPi() * (radio) * 2)
-        resultCirculo.value = (resultado)
+
+        if (resultado) {
+            resultCirculo.value = (resultado)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes ingresar los datos!',
+            })
+        }
     }
 
     function obtenerPi() {
@@ -132,14 +161,16 @@ function circuloArea() {
     }
 }
 
+
 function rectanguloArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
                                 <h3> ${arrayRectangulo.nombre} </h3>
                                 <img src="${arrayRectangulo.imgUrl}">
-                                <p>base: <input id="baseRectangulo" type="number" placeholder="Ingrese base"></p>
-                                <p>altura: <input id="alturaRectangulo" type="number" placeholder="Ingrese altura"></p>
-                                <p><input id="resultRectangulo" type="text" placeholder="Resultado"></p>
+                                <p>Base: <input id="baseRectangulo" type="number" placeholder="Ingrese base"></p>
+                                <p>Altura: <input id="alturaRectangulo" type="number" placeholder="Ingrese altura"></p>
+                                <p>Resultado:<input id="resultRectangulo" type="text" placeholder="Resultado"></p>
                                 <button class="btnRectangulo">Enviar</button>
+                                <button class="btnDelete">Borrar</button>
                                 </div>
                                 <span></span>
                                 <div class="two-sect">
@@ -152,10 +183,25 @@ function rectanguloArea() {
     let btnRectangulo = document.querySelector(".btnRectangulo")
     btnRectangulo.addEventListener("click", resultadoRectangulo)
 
+    let btnDelete = document.querySelector(".btnDelete")
+    btnDelete.addEventListener("click",()=>{
+        rectanguloArea()
+    })
+
+
     function resultadoRectangulo() {
         let base = parseInt(baseRectangulo.value)
         let altura = parseInt(alturaRectangulo.value)
         var resultado = (base * altura)
-        resultRectangulo.value = (resultado)
+
+        if (resultado) {
+            resultRectangulo.value = (resultado)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Debes ingresar los datos!',
+            })
+        }
     }
 }

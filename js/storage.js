@@ -9,7 +9,8 @@ let nombreMayus = mayus(nombreStorage)
 
 parrafo.textContent = `¡Hola ${nombreMayus}! Somos figure una pagina web dedicada especificiamente a realizar calculos matematicos para sacar datos de cualquier figura geometrica.`
 
-
-
 //////////////////////////////////////////////////////////
+
+
+
 
