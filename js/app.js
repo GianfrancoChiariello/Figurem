@@ -8,7 +8,7 @@ function namee() {
 
     if (miUser) {
         button.addEventListener("click",()=>{
-            window.location.href = "../pages/subMain.html";
+            window.location.href = "./pages/subMain.html";
         })
     } else {
         Swal.fire({
