@@ -1,7 +1,7 @@
-let arrayTriangulo = { id: 1, nombre: "triangulo", categoria: "isosceles", imgUrl: "/images/figuras/foto1.png" }
-let arrayCuadrado = { id: 2, nombre: "cuadrado", categoria: "bloque", imgUrl: "/images/figuras/foto2.png" }
-let arrayCirculo = { id: 3, nombre: "circulo", categoria: "circular", imgUrl: "/images/figuras/foto3.png" }
-let arrayRectangulo = { id: 4, nombre: "rectangulo", categoria: "rectangular", imgUrl: "/images/figuras/foto4.png" }
+let arrayTriangulo = { id: 1, nombre: "triangulo", categoria: "isosceles", imgUrl: "../images/figuras/foto1.png" }
+let arrayCuadrado = { id: 2, nombre: "cuadrado", categoria: "bloque", imgUrl: "../images/figuras/foto2.png" }
+let arrayCirculo = { id: 3, nombre: "circulo", categoria: "circular", imgUrl: "../images/figuras/foto3.png" }
+let arrayRectangulo = { id: 4, nombre: "rectangulo", categoria: "rectangular", imgUrl: "../images/figuras/foto4.png" }
 
 let cardContaniner = document.querySelector(".card-contaniner-sub")
 
