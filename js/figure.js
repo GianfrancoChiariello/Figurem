@@ -48,7 +48,7 @@ function trianguloArea() {
                                 <div class="two-sect">
                                 <h4>¿Como calculamos el area del ${arrayTriangulo.nombre}?</h4>
                                 <p>El área o superficie de un triángulo cualquiera es igual al producto de la base por la altura dividido por dos. (La vamos a representar por S en lugar de por A para evitar coincidencias con el vértice A).</p>        
-                                <img src="/images/formulas/triangle/formula.png">
+                                <img src="../images/formulas/triangle/formula.png">
                                 </div>`
 
     let btnTriangle = document.querySelector(".btnTriangle")
@@ -89,7 +89,7 @@ function cuadradoArea() {
                                 <div class="two-sect">
                                 <h4>¿Como calculamos el area del ${arrayCuadrado.nombre}?</h4>
                                 <p>Un cuadrado es definido como una figura 2D que tiene cuatro lados de igual longitud. Un cuadrado es un tipo especial de rectángulo, ya que todos sus ángulos internos miden 90°.</p>
-                                <img src="/images/formulas/cuadrado/formula.png">
+                                <img src="../images/formulas/cuadrado/formula.png">
                                 </div>`
 
     let btnCuadrado = document.querySelector(".btnCuadrado")
@@ -129,7 +129,7 @@ function circuloArea() {
                                 <div class="two-sect">
                                 <h4>¿Como calculamos el area del ${arrayCirculo.nombre}?</h4>
                                 <p>El área de un círculo es pi multiplicado por el radio al cuadrado (A = π r²). Aprende cómo utilizar esta fórmula para calcular el área de un círculo cuando el diámetro está dado.</p>
-                                <img src="/images/formulas/circulo/formula.png">
+                                <img src="../images/formulas/circulo/formula.png">
                                 </div>`
                                 
 
@@ -177,7 +177,7 @@ function rectanguloArea() {
                                 <h4>¿Como calculamos el area del ${arrayRectangulo.nombre}?</h4>
                                 <p>El área de un rectángulo es igual a la base del rectángulo por la altura del rectángulo.
                                 A diferencia del cuadrado, los lados del rectángulo son iguales dos a dos, por lo tanto, tenemos que multiplicar su base por su altura para calcular el área del rectángulo.</p>
-                                <img src="/images/formulas/rectangulo/formula.png">
+                                <img src="../images/formulas/rectangulo/formula.png">
                                 </div>`
 
     let btnRectangulo = document.querySelector(".btnRectangulo")
