@@ -17,7 +17,7 @@ nav.innerHTML = `<h1>Seleccionar figura para calcular su <span>area</span>
                     <img class="imgRectangulo"  src="${arrayRectangulo.imgUrl}">
                     </div>`
 
-cardContaniner.innerHTML = `<img src="/images/figuraGeoilus.png">`
+cardContaniner.innerHTML = `<img src="../images/figuraGeoilus.png">`
 
 
 
