@@ -64,13 +64,19 @@ function trianguloArea() {
         let altura = parseInt(alturaTriangle.value)
         var resultado = (base * altura) / 2;
 
-        if (resultado && resultado > 0) {
+        if (resultado > 0) {
             resultTriangle.value = resultado
+        } else if (resultado < 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ingrese numeros validos!',
+            })
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Ingrese datos correctos!',
+                text: 'Ingrese base y altura!',
             })
         }
     }
@@ -106,13 +112,19 @@ function cuadradoArea() {
         let base = parseInt(baseCuadrado.value)
         var resultado = (base * 2)
 
-        if (resultado && resultado > 0) {
-            resultCuadrado.value = (resultado)
+        if (resultado > 0) {
+            resultCuadrado.value = resultado
+        } else if (resultado < 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ingrese numeros validos!',
+            })
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Ingrese datos correctos!',
+                text: 'Ingrese base!',
             })
         }
     }
@@ -122,7 +134,7 @@ function circuloArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
                                 <h3> ${arrayCirculo.nombre} </h3>
                                 <img src="${arrayCirculo.imgUrl}">
-                                <p>base: <input id="radioCirculo" type="number" placeholder="Ingrese radio"></p>
+                                <p>Radio: <input id="radioCirculo" type="number" placeholder="Ingrese radio"></p>
                                 <p>Resultado:<input id="resultCirculo" type="text" placeholder="Resultado"></p>
                                 <button class="btnCirculo">Enviar</button>
                                 <button class="btnDelete">Borrar</button>
@@ -147,13 +159,19 @@ function circuloArea() {
         let radio = parseInt(radioCirculo.value)
         var resultado = (obtenerPi() * (radio) * 2)
 
-        if (resultado && resultado > 0) {
-            resultCirculo.value = (resultado)
+        if (resultado > 0) {
+            resultCirculo.value = resultado
+        } else if (resultado < 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ingrese numeros validos!',
+            })
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Ingrese datos correctos!',
+                text: 'Ingrese radio!',
             })
         }
     }
@@ -196,13 +214,19 @@ function rectanguloArea() {
         let altura = parseInt(alturaRectangulo.value)
         var resultado = (base * altura)
 
-        if (resultado && resultado > 0) {
-            resultRectangulo.value = (resultado)
+        if (resultado > 0) {
+            resultRectangulo.value = resultado
+        } else if (resultado < 0) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Ingrese numeros validos!',
+            })
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Ingrese datos correctos!',
+                text: 'Ingrese base y altura!',
             })
         }
     }
