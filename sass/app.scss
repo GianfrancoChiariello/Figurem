@@ -355,6 +355,31 @@ body {
         letter-spacing: 1px;
     }
 
+    .history-container {
+        min-width: 30rem;
+        background-color: white;
+        margin: 5rem;
+        border-radius: .5rem;
+        @include flex(column,nowrap,center,center);
+
+        h4 {
+            @include rs-2(.2rem);
+            text-transform: uppercase;
+            font-weight: 500;
+            padding: .5rem;
+        }
+
+        .box-result {
+            text-align: center;
+            width: 90%;
+            margin: .5rem;
+
+            span {
+                padding: .2rem;
+            }
+        }
+    }
+
     .card-contaniner-sub {
         display: flex;
         justify-content: space-evenly;
@@ -441,7 +466,6 @@ body {
     }
     }
 }
-
 
 
 .acheunoclase h3 {

@@ -497,6 +497,32 @@ body {
   opacity: 0.8;
   letter-spacing: 1px;
 }
+.main-sub .history-container {
+  min-width: 30rem;
+  background-color: white;
+  margin: 5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0;
+}
+.main-sub .history-container h4 {
+  font-size: calc(1vw + 0.2rem);
+  line-height: 1;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 0.5rem;
+}
+.main-sub .history-container .box-result {
+  text-align: center;
+  width: 90%;
+  margin: 0.5rem;
+}
+.main-sub .history-container .box-result span {
+  padding: 0.2rem;
+}
 .main-sub .card-contaniner-sub {
   display: flex;
   justify-content: space-evenly;

@@ -3,23 +3,19 @@ let arrayCuadrado = { id: 2, nombre: "cuadrado", categoria: "bloque", imgUrl: ".
 let arrayCirculo = { id: 3, nombre: "circulo", categoria: "circular", imgUrl: "../images/figuras/foto3.png" }
 let arrayRectangulo = { id: 4, nombre: "rectangulo", categoria: "rectangular", imgUrl: "../images/figuras/foto4.png" }
 
-let cardContaniner = document.querySelector(".card-contaniner-sub")
-
-
-
 let nav = document.querySelector(".nav-sub")
-
 nav.innerHTML = `<h1>Seleccionar figura para calcular su <span>area</span>
                     <div class="containerFigure-sub">
-                    <img class="imgTriangulo" src="${arrayTriangulo.imgUrl}">
-                    <img class="imgCuadrado"  src="${arrayCuadrado.imgUrl}">
-                    <img class="imgCirculo"  src="${arrayCirculo.imgUrl}">
-                    <img class="imgRectangulo"  src="${arrayRectangulo.imgUrl}">
+                        <img class="imgTriangulo" src="${arrayTriangulo.imgUrl}">
+                        <img class="imgCuadrado"  src="${arrayCuadrado.imgUrl}">
+                        <img class="imgCirculo"  src="${arrayCirculo.imgUrl}">
+                        <img class="imgRectangulo"  src="${arrayRectangulo.imgUrl}">
                     </div>`
 
+let cardContaniner = document.querySelector(".card-contaniner-sub")
 cardContaniner.innerHTML = `<img src="../images/figuraGeoilus.png">`
 
-
+let historyContainer = document.querySelector(".history-container")
 
 let imgTriangulo = document.querySelector(".imgTriangulo")
 imgTriangulo.addEventListener("click", trianguloArea)
@@ -81,8 +77,6 @@ function trianguloArea() {
         }
     }
 }
-
-
 
 function cuadradoArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
@@ -181,7 +175,6 @@ function circuloArea() {
     }
 }
 
-
 function rectanguloArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
                                 <h3> ${arrayRectangulo.nombre} </h3>
@@ -231,3 +224,4 @@ function rectanguloArea() {
         }
     }
 }
+
