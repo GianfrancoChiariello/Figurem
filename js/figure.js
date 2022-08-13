@@ -64,17 +64,19 @@ function trianguloArea() {
         let altura = parseInt(alturaTriangle.value)
         var resultado = (base * altura) / 2;
 
-        if (resultado) {
-            resultTriangle.value = (resultado)
+        if (resultado && resultado > 0) {
+            resultTriangle.value = resultado
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Debes ingresar los datos!',
+                text: 'Ingrese datos correctos!',
             })
         }
     }
 }
+
+
 
 function cuadradoArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
@@ -104,13 +106,13 @@ function cuadradoArea() {
         let base = parseInt(baseCuadrado.value)
         var resultado = (base * 2)
 
-        if (resultado) {
+        if (resultado && resultado > 0) {
             resultCuadrado.value = (resultado)
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Debes ingresar los datos!',
+                text: 'Ingrese datos correctos!',
             })
         }
     }
@@ -145,13 +147,13 @@ function circuloArea() {
         let radio = parseInt(radioCirculo.value)
         var resultado = (obtenerPi() * (radio) * 2)
 
-        if (resultado) {
+        if (resultado && resultado > 0) {
             resultCirculo.value = (resultado)
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Debes ingresar los datos!',
+                text: 'Ingrese datos correctos!',
             })
         }
     }
@@ -194,13 +196,13 @@ function rectanguloArea() {
         let altura = parseInt(alturaRectangulo.value)
         var resultado = (base * altura)
 
-        if (resultado) {
+        if (resultado && resultado > 0) {
             resultRectangulo.value = (resultado)
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
-                text: 'Debes ingresar los datos!',
+                text: 'Ingrese datos correctos!',
             })
         }
     }
