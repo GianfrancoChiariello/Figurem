@@ -15,7 +15,7 @@ nav.innerHTML = `<h1>Seleccionar figura para calcular su <span>area</span>
 let cardContaniner = document.querySelector(".card-contaniner-sub")
 cardContaniner.innerHTML = `<img src="../images/figuraGeoilus.png">`
 
-let historyContainer = document.querySelector(".history-container")
+let historyContainer = document.querySelector("#history-container")
 
 let imgTriangulo = document.querySelector(".imgTriangulo")
 imgTriangulo.addEventListener("click", trianguloArea)
@@ -47,6 +47,9 @@ function trianguloArea() {
                                 <img src="../images/formulas/triangle/formula.png">
                                 </div>`
 
+
+    let resultados = []   
+
     let btnTriangle = document.querySelector(".btnTriangle")
     btnTriangle.addEventListener("click", resultadoTriangle)
     
@@ -59,6 +62,24 @@ function trianguloArea() {
         let base = parseInt(baseTriangle.value)
         let altura = parseInt(alturaTriangle.value)
         var resultado = (base * altura) / 2;
+
+///////  new option ///
+
+        resultados.unshift(resultado)
+
+        historyContainer.innerHTML =   `<h4>Historial</h4>
+                                        <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
+
+///////  new option ///
+
+        localStorage.setItem("result",resultados.join("<br>"))
+
+        function localRestore() {
+            let store = localStorage.getItem("result")
+            historyContainer.innerHTML = store
+        }
+
+///////  new option ///
 
         if (resultado > 0) {
             resultTriangle.value = resultado

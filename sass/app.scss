@@ -355,7 +355,7 @@ body {
         letter-spacing: 1px;
     }
 
-    .history-container {
+    #history-container {
         min-width: 30rem;
         background-color: white;
         margin: 5rem;
@@ -375,6 +375,7 @@ body {
             margin: .5rem;
 
             span {
+                text-align: center;
                 padding: .2rem;
             }
         }
