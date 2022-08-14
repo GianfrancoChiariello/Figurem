@@ -29,6 +29,7 @@ imgCirculo.addEventListener("click", circuloArea)
 let imgRectangulo = document.querySelector(".imgRectangulo")
 imgRectangulo.addEventListener("click", rectanguloArea)
 
+let resultados = []   /* local storage */
 
 function trianguloArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
@@ -48,7 +49,6 @@ function trianguloArea() {
                                 </div>`
 
 
-    let resultados = []   
 
     let btnTriangle = document.querySelector(".btnTriangle")
     btnTriangle.addEventListener("click", resultadoTriangle)
@@ -58,31 +58,24 @@ function trianguloArea() {
         trianguloArea()
     })
 
+
+    
+    
     function resultadoTriangle() {
         let base = parseInt(baseTriangle.value)
         let altura = parseInt(alturaTriangle.value)
         var resultado = (base * altura) / 2;
 
-///////  new option ///
 
-        resultados.unshift(resultado)
+        localStorage.setItem("result",resultados.join("<br>"))  /* local storage */
 
-        historyContainer.innerHTML =   `<h4>Historial</h4>
-                                        <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
 
-///////  new option ///
-
-        localStorage.setItem("result",resultados.join("<br>"))
-
-        function localRestore() {
-            let store = localStorage.getItem("result")
-            historyContainer.innerHTML = store
-        }
-
-///////  new option ///
 
         if (resultado > 0) {
             resultTriangle.value = resultado
+            resultados.unshift(resultado)
+            historyContainer.innerHTML =   `<h4>Historial</h4>
+                                            <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
         } else if (resultado < 0) {
             Swal.fire({
                 icon: 'error',
@@ -96,8 +89,26 @@ function trianguloArea() {
                 text: 'Ingrese base y altura!',
             })
         }
+
     }
 }
+
+/* local storage */
+
+function localRestore() {  
+    let store = localStorage.getItem("result")
+    historyContainer.innerHTML =   `<h4>Historial</h4>
+                                    <div class="box-result"><span>${store}</span></div>`  
+}
+imgTriangulo.addEventListener("click", localRestore)
+
+/* local storage */
+
+
+
+
+
+
 
 function cuadradoArea() {
     cardContaniner.innerHTML = `<div class="one-sect">
