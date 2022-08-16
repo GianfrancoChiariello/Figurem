@@ -3,6 +3,26 @@ let arrayCuadrado = { id: 2, nombre: "cuadrado", categoria: "bloque", imgUrl: ".
 let arrayCirculo = { id: 3, nombre: "circulo", categoria: "circular", imgUrl: "../images/figuras/foto3.png" }
 let arrayRectangulo = { id: 4, nombre: "rectangulo", categoria: "rectangular", imgUrl: "../images/figuras/foto4.png" }
 
+/* local storage */
+
+function localRestore() {  
+    let store = localStorage.getItem("result")
+    historyContainer.innerHTML =   `<h4>Historial</h4>
+                                    <div class="box-result"><span>${store}</span></div>`  
+}
+
+/* local storage */
+
+/* Push results */
+
+function pushedResults(resultado) {
+    resultados.unshift(resultado)
+    historyContainer.innerHTML =   `<h4>Historial</h4>
+                                    <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
+}
+
+/* Push results */
+
 let nav = document.querySelector(".nav-sub")
 nav.innerHTML = `<h1>Seleccionar figura para calcular su <span>area</span>
                     <div class="containerFigure-sub">
@@ -58,7 +78,7 @@ function trianguloArea() {
         trianguloArea()
     })
 
-
+    localRestore();
     
     
     function resultadoTriangle() {
@@ -70,12 +90,9 @@ function trianguloArea() {
         localStorage.setItem("result",resultados.join("<br>"))  /* local storage */
 
 
-
         if (resultado > 0) {
             resultTriangle.value = resultado
-            resultados.unshift(resultado)
-            historyContainer.innerHTML =   `<h4>Historial</h4>
-                                            <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
+            pushedResults(resultado)
         } else if (resultado < 0) {
             Swal.fire({
                 icon: 'error',
@@ -89,24 +106,10 @@ function trianguloArea() {
                 text: 'Ingrese base y altura!',
             })
         }
-
     }
+
+
 }
-
-/* local storage */
-
-function localRestore() {  
-    let store = localStorage.getItem("result")
-    historyContainer.innerHTML =   `<h4>Historial</h4>
-                                    <div class="box-result"><span>${store}</span></div>`  
-}
-imgTriangulo.addEventListener("click", localRestore)
-
-/* local storage */
-
-
-
-
 
 
 
@@ -134,12 +137,16 @@ function cuadradoArea() {
         cuadradoArea()
     })
 
+    localRestore();
+
     function resultadoCuadrado() {
         let base = parseInt(baseCuadrado.value)
         var resultado = (base * 2)
 
+
         if (resultado > 0) {
             resultCuadrado.value = resultado
+            pushedResults(resultado)
         } else if (resultado < 0) {
             Swal.fire({
                 icon: 'error',
@@ -181,12 +188,15 @@ function circuloArea() {
         circuloArea()
     })
 
+    localRestore();
+
     function resultadoCirculo() {
         let radio = parseInt(radioCirculo.value)
         var resultado = (obtenerPi() * (radio) * 2)
 
         if (resultado > 0) {
             resultCirculo.value = resultado
+            pushedResults(resultado)
         } else if (resultado < 0) {
             Swal.fire({
                 icon: 'error',
@@ -233,6 +243,8 @@ function rectanguloArea() {
         rectanguloArea()
     })
 
+    localRestore();
+
 
     function resultadoRectangulo() {
         let base = parseInt(baseRectangulo.value)
@@ -241,6 +253,7 @@ function rectanguloArea() {
 
         if (resultado > 0) {
             resultRectangulo.value = resultado
+            pushedResults(resultado)
         } else if (resultado < 0) {
             Swal.fire({
                 icon: 'error',
