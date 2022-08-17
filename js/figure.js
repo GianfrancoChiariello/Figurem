@@ -3,17 +3,12 @@ let arrayCuadrado = { id: 2, nombre: "cuadrado", categoria: "bloque", imgUrl: ".
 let arrayCirculo = { id: 3, nombre: "circulo", categoria: "circular", imgUrl: "../images/figuras/foto3.png" }
 let arrayRectangulo = { id: 4, nombre: "rectangulo", categoria: "rectangular", imgUrl: "../images/figuras/foto4.png" }
 
-/* local storage */
 
-function localRestore() {  
+function localRestore() { 
     let store = localStorage.getItem("result")
     historyContainer.innerHTML =   `<h4>Historial</h4>
                                     <div class="box-result"><span>${store}</span></div>`  
 }
-
-/* local storage */
-
-/* Push results */
 
 function pushedResults(resultado) {
     resultados.unshift(resultado)
@@ -21,7 +16,10 @@ function pushedResults(resultado) {
                                     <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
 }
 
-/* Push results */
+
+
+
+
 
 let nav = document.querySelector(".nav-sub")
 nav.innerHTML = `<h1>Seleccionar figura para calcular su <span>area</span>
@@ -87,7 +85,7 @@ function trianguloArea() {
         var resultado = (base * altura) / 2;
 
 
-        localStorage.setItem("result",resultados.join("<br>"))  /* local storage */
+        localStorage.setItem("result",resultados.join("<br>"))
 
 
         if (resultado > 0) {
@@ -143,6 +141,7 @@ function cuadradoArea() {
         let base = parseInt(baseCuadrado.value)
         var resultado = (base * 2)
 
+        localStorage.setItem("result",resultados.join("<br>"))
 
         if (resultado > 0) {
             resultCuadrado.value = resultado
@@ -193,6 +192,8 @@ function circuloArea() {
     function resultadoCirculo() {
         let radio = parseInt(radioCirculo.value)
         var resultado = (obtenerPi() * (radio) * 2)
+
+        localStorage.setItem("result",resultados.join("<br>"))
 
         if (resultado > 0) {
             resultCirculo.value = resultado
@@ -250,6 +251,8 @@ function rectanguloArea() {
         let base = parseInt(baseRectangulo.value)
         let altura = parseInt(alturaRectangulo.value)
         var resultado = (base * altura)
+
+        
 
         if (resultado > 0) {
             resultRectangulo.value = resultado
