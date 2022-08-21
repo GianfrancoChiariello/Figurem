@@ -112,8 +112,10 @@ fetch('../js/data.json')
         let resultadoRE = JSON.parse(items)[0].resultado
 
         
-        liname.innerHTML = (`Ultimo calculo restaurado:  (${numeroRE}   *  ${numeroRe}) / 2 = ${resultadoRE}`)
-        historyContainer.append(liname)
+        if (items) {
+            liname.innerHTML = (`Ultimo calculo restaurado:  (${numeroRE}   *  ${numeroRe}) / 2 = ${resultadoRE}`)
+            historyContainer.append(liname)
+        }
     }
 
 
@@ -174,12 +176,14 @@ fetch('../js/data.json')
         }
 
         var items1 = localStorage.getItem("resultado1")
-        let numeroCU = JSON.parse(items1)[0].numero1
-        let resultadoCU = JSON.parse(items1)[0].resultado
+        var numeroCU = JSON.parse(items1)[0].numero1
+        var resultadoCU = JSON.parse(items1)[0].resultado
 
         
-        liname.innerHTML = (`Ultimo calculo restaurado:  ${numeroCU}   *  2 = ${resultadoCU}`)
-        historyContainer.append(liname)
+        if (items1) {
+            liname.innerHTML = (`Ultimo calculo restaurado:  ${numeroCU}   *  2 = ${resultadoCU}`)
+            historyContainer.append(liname)
+        }
     }
 
     function circuloArea() {
@@ -211,7 +215,7 @@ fetch('../js/data.json')
 
         function resultadoCirculo() {
             let radio = parseInt(radioCirculo.value)
-            var resultado = (obtenerPi() * (radio) * 2)
+            var resultado = (3.144 * (radio) * 2)
 
             resultadosCirculo.unshift({numero1: radio , resultado: resultado})
 
@@ -239,17 +243,15 @@ fetch('../js/data.json')
             }
         }
 
-        function obtenerPi() {
-            return 3.144;
-        }
-
         var items2 = localStorage.getItem("resultado2")
         let numeroCC = JSON.parse(items2)[0].numero1
         let resultadoCC = JSON.parse(items2)[0].resultado
 
         
-        liname.innerHTML = (`Ultimo calculo restaurado:  3.144   *  ${numeroCC} * 2 = ${resultadoCC}`)
-        historyContainer.append(liname)
+        if (items2) {
+            liname.innerHTML = (`Ultimo calculo restaurado:  3.144   *  ${numeroCC} * 2 = ${resultadoCC}`)
+            historyContainer.append(liname)
+        }
     }
 
     function rectanguloArea() {
@@ -319,8 +321,10 @@ fetch('../js/data.json')
         let resultadoRR = JSON.parse(items3)[0].resultado
 
         
-        liname.innerHTML = (`Ultimo calculo restaurado:  ${numeroR}   *  ${numeroRR} = ${resultadoRR}`)
-        historyContainer.append(liname)
+        if (items3) {
+            liname.innerHTML = (`Ultimo calculo restaurado:  ${numeroR}   *  ${numeroRR} = ${resultadoRR}`)
+            historyContainer.append(liname)
+        }
     }
 
     
