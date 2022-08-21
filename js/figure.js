@@ -7,21 +7,6 @@ fetch('../js/data.json')
         const rectangulo =  figuras[3]
 
 
-
-
-    function localRestore() { 
-        let store = localStorage.getItem("result")
-        historyContainer.innerHTML =   `<h4>Historial</h4>
-                                        <div class="box-result"><span>${store}</span></div>`  
-    }
-
-    function pushedResults(resultado) {
-        resultados.unshift(resultado)
-        historyContainer.innerHTML =   `<h4>Historial</h4>
-                                        <div class="box-result"><span>${resultados.join("<br>")}</span></div>`
-    }
-
-
     let nav = document.querySelector(".nav-sub")
     nav.innerHTML = `<h1>Seleccionar figura para calcular su <span>area</span>
                         <div class="containerFigure-sub">
@@ -34,7 +19,13 @@ fetch('../js/data.json')
     let cardContaniner = document.querySelector(".card-contaniner-sub")
     cardContaniner.innerHTML = `<img src="../images/figuraGeoilus.png">`
 
+    var resultadosTriangle = []   /* local storage */
+    var resultadosCuadrado = []   /* local storage */
+    var resultadosCirculo = []   /* local storage */   
+    var resultadosRectangulo = []   /* local storage */
+
     let historyContainer = document.querySelector("#history-container")
+
 
     let imgTriangulo = document.querySelector(".imgTriangulo")
     imgTriangulo.addEventListener("click", trianguloArea)
@@ -48,7 +39,7 @@ fetch('../js/data.json')
     let imgRectangulo = document.querySelector(".imgRectangulo")
     imgRectangulo.addEventListener("click", rectanguloArea)
 
-    let resultados = []   /* local storage */
+
 
     function trianguloArea() {
         cardContaniner.innerHTML = `<div class="one-sect">
@@ -76,22 +67,30 @@ fetch('../js/data.json')
         btnDelete.addEventListener("click", () => {
             trianguloArea()
         })
+        
 
-        localRestore();
-        
-        
         function resultadoTriangle() {
-            let base = parseInt(baseTriangle.value)
-            let altura = parseInt(alturaTriangle.value)
+            var base = parseInt(baseTriangle.value)
+            var altura = parseInt(alturaTriangle.value)
             var resultado = (base * altura) / 2;
 
 
-            localStorage.setItem("result",resultados.join("<br>"))
+            resultadosTriangle.unshift({numero1: base, numero2: altura , resultado: resultado})
+
+            localStorage.setItem("resultado",JSON.stringify(resultadosTriangle))
+            
+
+
 
 
             if (resultado > 0) {
                 resultTriangle.value = resultado
-                pushedResults(resultado)
+
+                let door = document.createElement("li")
+                door.innerHTML = (`El ultimo calculo fue: ${base} + ${altura} = ${resultado}`)
+                historyContainer.append(door)
+
+                
             } else if (resultado < 0) {
                 Swal.fire({
                     icon: 'error',
@@ -107,7 +106,14 @@ fetch('../js/data.json')
             }
         }
 
+        var items = localStorage.getItem("resultado")
+        let numeroRE = JSON.parse(items)[0].numero1
+        let numeroRe = JSON.parse(items)[0].numero2
+        let resultadoRE = JSON.parse(items)[0].resultado
 
+        
+        liname.innerHTML = (`Ultimo calculo restaurado:  (${numeroRE}   *  ${numeroRe}) / 2 = ${resultadoRE}`)
+        historyContainer.append(liname)
     }
 
 
@@ -136,17 +142,22 @@ fetch('../js/data.json')
             cuadradoArea()
         })
 
-        localRestore();
 
         function resultadoCuadrado() {
             let base = parseInt(baseCuadrado.value)
             var resultado = (base * 2)
 
-            localStorage.setItem("result",resultados.join("<br>"))
+            resultadosCuadrado.unshift({numero1: base , resultado: resultado})
+
+            localStorage.setItem("resultado1",JSON.stringify(resultadosCuadrado))
 
             if (resultado > 0) {
                 resultCuadrado.value = resultado
-                pushedResults(resultado)
+                
+                let door = document.createElement("li")
+                door.innerHTML = (`Historial: ${base} * 2 = ${resultado}`)
+                historyContainer.append(door)
+            
             } else if (resultado < 0) {
                 Swal.fire({
                     icon: 'error',
@@ -161,6 +172,14 @@ fetch('../js/data.json')
                 })
             }
         }
+
+        var items1 = localStorage.getItem("resultado1")
+        let numeroCU = JSON.parse(items1)[0].numero1
+        let resultadoCU = JSON.parse(items1)[0].resultado
+
+        
+        liname.innerHTML = (`Ultimo calculo restaurado:  ${numeroCU}   *  2 = ${resultadoCU}`)
+        historyContainer.append(liname)
     }
 
     function circuloArea() {
@@ -188,17 +207,23 @@ fetch('../js/data.json')
             circuloArea()
         })
 
-        localRestore();
+
 
         function resultadoCirculo() {
             let radio = parseInt(radioCirculo.value)
             var resultado = (obtenerPi() * (radio) * 2)
 
-            localStorage.setItem("result",resultados.join("<br>"))
+            resultadosCirculo.unshift({numero1: radio , resultado: resultado})
+
+            localStorage.setItem("resultado2",JSON.stringify(resultadosCirculo))
 
             if (resultado > 0) {
                 resultCirculo.value = resultado
-                pushedResults(resultado)
+                
+                let door = document.createElement("li")
+                door.innerHTML = (`Historial: 3.144 * ${radio} * 2 = ${resultado}`)
+                historyContainer.append(door)
+
             } else if (resultado < 0) {
                 Swal.fire({
                     icon: 'error',
@@ -217,6 +242,14 @@ fetch('../js/data.json')
         function obtenerPi() {
             return 3.144;
         }
+
+        var items2 = localStorage.getItem("resultado2")
+        let numeroCC = JSON.parse(items2)[0].numero1
+        let resultadoCC = JSON.parse(items2)[0].resultado
+
+        
+        liname.innerHTML = (`Ultimo calculo restaurado:  3.144   *  ${numeroCC} * 2 = ${resultadoCC}`)
+        historyContainer.append(liname)
     }
 
     function rectanguloArea() {
@@ -245,7 +278,8 @@ fetch('../js/data.json')
             rectanguloArea()
         })
 
-        localRestore();
+
+
 
 
         function resultadoRectangulo() {
@@ -253,11 +287,17 @@ fetch('../js/data.json')
             let altura = parseInt(alturaRectangulo.value)
             var resultado = (base * altura)
 
-            
+            resultadosRectangulo.unshift({numero1: base ,numero2: altura , resultado: resultado})
+
+            localStorage.setItem("resultado3",JSON.stringify(resultadosRectangulo))
 
             if (resultado > 0) {
                 resultRectangulo.value = resultado
-                pushedResults(resultado)
+                
+                let door = document.createElement("li")
+                door.innerHTML = (`Historial: ${base} * ${altura} = ${resultado}`)
+                historyContainer.append(door)
+
             } else if (resultado < 0) {
                 Swal.fire({
                     icon: 'error',
@@ -272,5 +312,18 @@ fetch('../js/data.json')
                 })
             }
         }
+
+        var items3 = localStorage.getItem("resultado3")
+        let numeroR = JSON.parse(items3)[0].numero1
+        let numeroRR = JSON.parse(items3)[0].numero2
+        let resultadoRR = JSON.parse(items3)[0].resultado
+
+        
+        liname.innerHTML = (`Ultimo calculo restaurado:  ${numeroR}   *  ${numeroRR} = ${resultadoRR}`)
+        historyContainer.append(liname)
     }
+
+    
+
 })
+
